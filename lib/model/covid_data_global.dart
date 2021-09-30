@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
 class CovidDataGlobal {
-  double activePerOneMillion;
-  int updated;
-  int todayRecovered;
-  double testsPerOneMillion;
-  int deaths;
-  int oneDeathPerPeople;
-  int todayCases;
-  int tests;
-  double criticalPerOneMillion;
-  int todayDeaths;
-  double recoveredPerOneMillion;
-  int critical;
-  int oneTestPerPeople;
-  int casesPerOneMillion;
-  int active;
-  int cases;
-  int affectedCountries;
-  int oneCasePerPeople;
-  double deathsPerOneMillion;
-  int recovered;
-  int population;
+  String activePerOneMillion;
+  String updated;
+  String todayRecovered;
+  String testsPerOneMillion;
+  String deaths;
+  String oneDeathPerPeople;
+  String todayCases;
+  String tests;
+  String criticalPerOneMillion;
+  String todayDeaths;
+  String recoveredPerOneMillion;
+  String critical;
+  String oneTestPerPeople;
+  String casesPerOneMillion;
+  String active;
+  String cases;
+  String affectedCountries;
+  String oneCasePerPeople;
+  String deathsPerOneMillion;
+  String recovered;
+  String population;
 
   CovidDataGlobal(
       {this.activePerOneMillion,
@@ -47,27 +47,27 @@ class CovidDataGlobal {
       this.population});
 
   CovidDataGlobal.fromJson(Map<String, dynamic> json) {
-    activePerOneMillion = json['activePerOneMillion'];
-    updated = json['updated'];
-    todayRecovered = json['todayRecovered'];
-    testsPerOneMillion = json['testsPerOneMillion'];
-    deaths = json['deaths'];
-    oneDeathPerPeople = json['oneDeathPerPeople'];
-    todayCases = json['todayCases'];
-    tests = json['tests'];
-    criticalPerOneMillion = json['criticalPerOneMillion'];
-    todayDeaths = json['todayDeaths'];
-    recoveredPerOneMillion = json['recoveredPerOneMillion'];
-    critical = json['critical'];
-    oneTestPerPeople = json['oneTestPerPeople'];
-    casesPerOneMillion = json['casesPerOneMillion'];
-    active = json['active'];
-    cases = json['cases'];
-    affectedCountries = json['affectedCountries'];
-    oneCasePerPeople = json['oneCasePerPeople'];
-    deathsPerOneMillion = json['deathsPerOneMillion'];
-    recovered = json['recovered'];
-    population = json['population'];
+    activePerOneMillion = json['activePerOneMillion'].toString();
+    updated = json['updated'].toString();
+    todayRecovered = json['todayRecovered'].toString();
+    testsPerOneMillion = json['testsPerOneMillion'].toString();
+    deaths = json['deaths'].toString();
+    oneDeathPerPeople = json['oneDeathPerPeople'].toString();
+    todayCases = json['todayCases'].toString();
+    tests = json['tests'].toString();
+    criticalPerOneMillion = json['criticalPerOneMillion'].toString();
+    todayDeaths = json['todayDeaths'].toString();
+    recoveredPerOneMillion = json['recoveredPerOneMillion'].toString();
+    critical = json['critical'].toString();
+    oneTestPerPeople = json['oneTestPerPeople'].toString();
+    casesPerOneMillion = json['casesPerOneMillion'].toString();
+    active = json['active'].toString();
+    cases = json['cases'].toString();
+    affectedCountries = json['affectedCountries'].toString();
+    oneCasePerPeople = json['oneCasePerPeople'].toString();
+    deathsPerOneMillion = json['deathsPerOneMillion'].toString();
+    recovered = json['recovered'].toString();
+    population = json['population'].toString();
   }
 
   Map<String, dynamic> toJson() {

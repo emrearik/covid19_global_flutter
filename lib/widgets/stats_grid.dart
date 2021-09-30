@@ -11,14 +11,26 @@ class StatsGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.25,
+      height: MediaQuery.of(context).size.height * 0.3,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+            child: Text(
+              "Total",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
           Flexible(
             child: Row(
               children: [
                 _buildStatCard(
-                    "Total Cases",
+                    "Cases",
                     (filter == 0
                         ? formatText(covidDataViewModel.selectedCountry.cases)
                         : formatText(
@@ -111,7 +123,7 @@ class StatsGrid extends StatelessWidget {
   }
 
   String formatText(String text) {
-    var formatter = NumberFormat('#,###,000');
+    var formatter = NumberFormat('#,###,###');
     return formatter.format(double.parse(text));
   }
 }

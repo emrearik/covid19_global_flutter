@@ -1,7 +1,5 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
-import 'package:covid19_global_flutter/config/palette.dart';
-import 'package:covid19_global_flutter/config/styles.dart';
-import 'package:covid19_global_flutter/data/data.dart';
+import 'package:covid19_global_flutter/config/config.dart';
 import 'package:covid19_global_flutter/model/model.dart';
 import 'package:covid19_global_flutter/viewmodel/coviddata_viewmodel.dart';
 import 'package:covid19_global_flutter/widgets/widgets.dart';
@@ -38,29 +36,34 @@ class _StatsScreenState extends State<StatsScreen>
     covidDataViewModel = Provider.of<CovidDataViewModel>(context);
     return Scaffold(
         backgroundColor: Palette.primaryColor,
-        appBar: CustomAppBar(),
         body: covidDataViewModel.filteredCountriesCovidData.isNotEmpty
-            ? CustomScrollView(
-                physics: ClampingScrollPhysics(),
-                slivers: [
-                  _buildHeader(),
-                  _buildRegionTabBar(_regionTabController),
-                  _buildStatsTabBar(),
-                  SliverPadding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    sliver: SliverToBoxAdapter(
-                        child: StatsGrid(
-                      covidDataViewModel: covidDataViewModel,
-                      filter: filter,
-                    )),
-                  ),
-                  SliverPadding(
-                    padding: EdgeInsets.only(top: 20),
-                    sliver: SliverToBoxAdapter(
-                      child: CovidBarChart(covidCases: covidUsaDailyNewCases),
+            ? Padding(
+                padding: EdgeInsets.fromLTRB(0, 80, 0, 0),
+                child: CustomScrollView(
+                  physics: ClampingScrollPhysics(),
+                  slivers: [
+                    _buildHeader(),
+                    _buildRegionTabBar(_regionTabController),
+                    SliverPadding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                      sliver: SliverToBoxAdapter(
+                          child: StatsGrid(
+                        covidDataViewModel: covidDataViewModel,
+                        filter: filter,
+                      )),
                     ),
-                  ),
-                ],
+                    SliverPadding(
+                      padding: EdgeInsets.only(top: 0),
+                      sliver: SliverToBoxAdapter(
+                        child: (filter == 0)
+                            ? CovidDetails(
+                                covidDataViewModel: covidDataViewModel)
+                            : Container(),
+                      ),
+                    )
+                  ],
+                ),
               )
             : Center(child: CircularProgressIndicator()));
   }
@@ -120,29 +123,6 @@ class _StatsScreenState extends State<StatsScreen>
                 filter = index;
               },
             )),
-      ),
-    );
-  }
-
-  SliverPadding _buildStatsTabBar() {
-    return SliverPadding(
-      padding: EdgeInsets.all(20),
-      sliver: SliverToBoxAdapter(
-        child: DefaultTabController(
-          length: 3,
-          child: TabBar(
-            indicatorColor: Colors.transparent,
-            labelStyle: Styles.tabTextStyle,
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.white60,
-            tabs: [
-              Text("Total"),
-              Text("Today"),
-              Text("Yesterday"),
-            ],
-            onTap: (index) {},
-          ),
-        ),
       ),
     );
   }
