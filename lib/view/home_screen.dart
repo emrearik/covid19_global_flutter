@@ -1,5 +1,4 @@
-import 'package:covid19_global_flutter/config/palette.dart';
-import 'package:covid19_global_flutter/config/styles.dart';
+import 'package:covid19_global_flutter/config/config.dart';
 import 'package:covid19_global_flutter/data/data.dart';
 import 'package:covid19_global_flutter/model/model.dart';
 import 'package:covid19_global_flutter/viewmodel/coviddata_viewmodel.dart';
@@ -20,7 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: CustomAppBar(),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: [
@@ -36,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     covidDataViewModel = Provider.of<CovidDataViewModel>(context);
     return SliverToBoxAdapter(
       child: Container(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.fromLTRB(20, 80, 20, 20),
           decoration: BoxDecoration(
             color: Palette.primaryColor,
             borderRadius: BorderRadius.only(

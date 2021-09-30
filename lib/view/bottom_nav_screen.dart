@@ -1,8 +1,5 @@
-import 'package:covid19_global_flutter/locator.dart';
 import 'package:covid19_global_flutter/view/screens.dart';
-import 'package:covid19_global_flutter/viewmodel/coviddata_viewmodel.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class BottomNavScreen extends StatefulWidget {
   @override
@@ -13,7 +10,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     HomeScreen(),
     StatsScreen(),
-    Scaffold(),
+    PreventionScreen(),
     Scaffold(),
     Scaffold(),
   ];
