@@ -5,6 +5,7 @@ import 'package:covid19_global_flutter/viewmodel/coviddata_viewmodel.dart';
 import 'package:covid19_global_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -91,13 +92,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      FlatButton.icon(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        onPressed: () {},
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                      TextButton.icon(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.red),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          padding:
+                              MaterialStateProperty.all<EdgeInsetsGeometry>(
+                                  EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 20)),
                         ),
                         icon: Icon(
                           Icons.phone,
@@ -105,28 +113,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         label: Text(
                           "Call Now",
-                          style: Styles.buttonTextStyle,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
                         ),
-                        textColor: Colors.white,
+                        onPressed: () => launch("tel://911"),
                       ),
-                      FlatButton.icon(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        onPressed: () {},
-                        color: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        icon: Icon(
-                          Icons.chat_bubble,
-                          color: Colors.white,
-                        ),
-                        label: Text(
-                          "Send SMS",
-                          style: Styles.buttonTextStyle,
-                        ),
-                        textColor: Colors.white,
-                      )
                     ],
                   )
                 ],
