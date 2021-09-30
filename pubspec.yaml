@@ -63,6 +63,9 @@ flutter:
      - assets/images/touchFace.svg
      - assets/images/socialDistance.svg
      - assets/images/washHands.svg
+     - assets/images/fever.svg
+     - assets/images/breath.svg
+     - assets/images/cough.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
