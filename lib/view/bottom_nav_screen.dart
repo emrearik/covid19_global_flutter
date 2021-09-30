@@ -1,4 +1,5 @@
 import 'package:covid19_global_flutter/view/screens.dart';
+import 'package:covid19_global_flutter/view/symptomps_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -11,8 +12,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     StatsScreen(),
     PreventionScreen(),
-    Scaffold(),
-    Scaffold(),
+    SymptopmsScreen(),
   ];
   int _currentIndex = 0;
   @override
