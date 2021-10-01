@@ -38,4 +38,4 @@ This project is made using Flutter framework.In this app you can check the daily
 
 
 ## Design
-![Design](https://i.imgur.com/YlHIiHr.jpeg "Design")
+![Design](https://i.imgur.com/iH7ZIZU.jpeg "Design")
