@@ -16,7 +16,6 @@ This project is made using Flutter framework.In this app you can check the daily
 ## Plugins
 
 - [bubble_tab_indicator](https://pub.dev/packages/bubble_tab_indicator)
-- [fl_chart](https://pub.dev/packages/fl_chart)
 - [get_it](https://pub.dev/packages/get_it)
 - [provider](https://pub.dev/packages/provider)
 - [http](https://pub.dev/packages/http)
