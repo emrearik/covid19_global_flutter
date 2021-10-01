@@ -10,7 +10,7 @@ class CovidDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: 430,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(

@@ -60,6 +60,6 @@ class CovidDataViewModel with ChangeNotifier {
 
   void selectedCountryFunction(CovidData selected) {
     _selectedCountry = selected;
-    print("selected country:" + selectedCountry.country);
+    print("Selected Country: " + selectedCountry.country);
   }
 }
