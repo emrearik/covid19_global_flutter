@@ -5,6 +5,7 @@ import 'package:covid19_global_flutter/viewmodel/coviddata_viewmodel.dart';
 import 'package:covid19_global_flutter/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -91,13 +92,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      FlatButton.icon(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        onPressed: () {},
-                        color: Colors.red,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                      TextButton.icon(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.red),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                          ),
+                          padding:
+                              MaterialStateProperty.all<EdgeInsetsGeometry>(
+                                  EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 20)),
                         ),
                         icon: Icon(
                           Icons.phone,
@@ -105,28 +113,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         label: Text(
                           "Call Now",
-                          style: Styles.buttonTextStyle,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
                         ),
-                        textColor: Colors.white,
+                        onPressed: () => launch("tel://911"),
                       ),
-                      FlatButton.icon(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                        onPressed: () {},
-                        color: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        icon: Icon(
-                          Icons.chat_bubble,
-                          color: Colors.white,
-                        ),
-                        label: Text(
-                          "Send SMS",
-                          style: Styles.buttonTextStyle,
-                        ),
-                        textColor: Colors.white,
-                      )
                     ],
                   )
                 ],
@@ -178,46 +172,52 @@ class _HomeScreenState extends State<HomeScreen> {
 
   SliverToBoxAdapter _buildYourOwnTest(double screenHeight) {
     return SliverToBoxAdapter(
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        padding: EdgeInsets.all(10),
-        height: screenHeight * 0.15,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFFAD9FE4), Palette.primaryColor],
-          ),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Image.asset("assets/images/own_test.png"),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Do your own test!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: screenHeight * 0.01,
-                ),
-                Text(
-                  "Follow the instructions\n to do your own test.",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
-                  maxLines: 2,
-                ),
-              ],
+      child: GestureDetector(
+        onTap: () {
+          launch(
+              "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/coronavirus-self-checker.html");
+        },
+        child: Container(
+          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          padding: EdgeInsets.all(10),
+          height: screenHeight * 0.15,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFAD9FE4), Palette.primaryColor],
             ),
-          ],
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Image.asset("assets/images/own_test.png"),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Do your own test!",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenHeight * 0.01,
+                  ),
+                  Text(
+                    "Follow the instructions\n to do your own test.",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+                    maxLines: 2,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

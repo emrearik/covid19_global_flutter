@@ -21,8 +21,8 @@ class _SymptopmsScreenState extends State<SymptopmsScreen> {
         physics: ClampingScrollPhysics(),
         child: Column(
           children: [
-            _symptompsPageWidgetFull("Prevention of Coronavirus",
-                "There is currently no vaccine to prevent Coronavirus (COVID-19. The best way to prevent illness is to avoid being exposed to this virus."),
+            _symptompsPageWidgetFull("Symptoms of Coronavirus",
+                "The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore throat, or diarrhea. These symptoms are usually mild and begin gradually. Also the symptoms may appear 2-14 days after exposure."),
             Container(
               height: screenHeight / 1.3,
               decoration: BoxDecoration(
@@ -35,19 +35,19 @@ class _SymptopmsScreenState extends State<SymptopmsScreen> {
               child: Column(
                 children: [
                   _symptompsPageLeftWidget(
-                    "Avoid touching face",
-                    "Hands touch many surfaces and can pick up viruses. So, hands can transfer the virus to your eyes, nose, or mouth and can make you sick..",
-                    "assets/images/touchFace.svg",
+                    "Fever",
+                    "High Fever – this means you feel hot to touch on your chest or back. It is a common sign and also may appear in 2-10 days if you affected.",
+                    "assets/images/fever.svg",
                   ),
                   _symptompsPageRightWidget(
-                    "Maintain social distancing",
-                    "Maintain at least ~1.8 meters (6 feet) distance between yourself & anyone who is coughing or sneezing.",
-                    "assets/images/socialDistance.svg",
+                    "Shortness of breath",
+                    "Difficulty breathing – Around 1 out of every 6 people who get COVID-19 becomes seriously ill and develops difficulty breathing or shortness of breath.",
+                    "assets/images/breath.svg",
                   ),
                   _symptompsPageLeftWidget(
-                    "Wash your hands frequently",
-                    "Wash your hands frequently Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water for at least 20 seconds.",
-                    "assets/images/washHands.svg",
+                    "Cough",
+                    "Continuous cough – this means coughing a lot for more than an hour, or 3 or more coughing episodes in 24 hours.",
+                    "assets/images/cough.svg",
                   ),
                 ],
               ),

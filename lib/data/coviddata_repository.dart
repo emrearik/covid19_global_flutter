@@ -9,9 +9,6 @@ class CovidDataRepository {
 
   Future<List<CovidData>> getFilteredCovidData() async {
     filteredResponse = await covidApiClient.getFilteredCovidData();
-    print(
-      filteredResponse.indexWhere((element) => element.country == "Turkey"),
-    );
     return filteredResponse;
   }
 
